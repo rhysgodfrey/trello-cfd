@@ -1,0 +1,58 @@
+﻿@model TrelloCFD.Models.CumulativeFlowModel
+
+@{
+    string containerId = Guid.NewGuid().ToString("N");
+}
+
+<script type="text/javascript">
+    $(function () {
+        var chart;
+        $(document).ready(function() {
+            chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: '@containerId',
+                    type: 'area'
+                },
+                title: {
+                    text: '@ViewBag.BoardName'
+                },
+                xAxis: {
+                    categories: [@Html.Raw(String.Join(",", Model.Periods.Select(p => String.Format(@"'{0}'", p.ToString("dd/MM HH:mm"))).ToArray()))],
+                    tickmarkPlacement: 'on',
+                    title: {
+                        enabled: false
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: '@Model.Title'
+                    }
+                },
+                tooltip: {
+                    formatter: function() {
+                        return ''+
+                            this.x +': '+ this.y;
+                    }
+                },
+                plotOptions: {
+                    area: {
+                        stacking: 'normal',
+                        lineColor: '#666666',
+                        lineWidth: 1,
+                        marker: {
+                            lineWidth: 1,
+                            lineColor: '#666666'
+                        }
+                    }
+                },
+                series: [
+                    @Html.Raw(String.Join(",", Model.Lists.Select(l => String.Format("{{ name: '{0}', data: [{1}] }}", l.Name,
+                        String.Join(",", l.Counts.ToArray()))).ToArray()))
+                ]
+            });
+        });
+    
+    });
+</script>
+
+<div id="@containerId" style="min-width: 300px; height: 400px; margin: 0 auto"></div>

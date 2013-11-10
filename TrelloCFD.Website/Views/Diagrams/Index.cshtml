@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Diagrams";
+}
+
+<h2>Boards</h2>
+
+<p>Select a board from the list below to start</p>
+
+<ul>
+    @foreach (var board in ViewBag.Boards)
+    {
+        <li>
+            <a href="/Diagrams/Board/@board.Id">
+                @board.Name
+            </a>
+        </li>
+    }
+</ul>

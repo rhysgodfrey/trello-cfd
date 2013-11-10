@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrelloCFD.Website", "TrelloCFD.Website\TrelloCFD.Website.csproj", "{B513E636-326E-4098-87E8-695942EA76CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrelloOAuth", "TrelloOAuth\TrelloOAuth.csproj", "{FF3B357A-D904-4816-8746-1748CCA298EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrelloCFD", "TrelloCFD\TrelloCFD.csproj", "{0C8EF9FA-B6F4-43B1-9989-9008737A795C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chello.ScrumExtensions", "Chello.ScrumExtensions\Chello.ScrumExtensions.csproj", "{585222F6-6C88-42C9-8DF8-91650FA00C5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B513E636-326E-4098-87E8-695942EA76CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B513E636-326E-4098-87E8-695942EA76CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B513E636-326E-4098-87E8-695942EA76CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B513E636-326E-4098-87E8-695942EA76CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF3B357A-D904-4816-8746-1748CCA298EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF3B357A-D904-4816-8746-1748CCA298EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF3B357A-D904-4816-8746-1748CCA298EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF3B357A-D904-4816-8746-1748CCA298EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C8EF9FA-B6F4-43B1-9989-9008737A795C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C8EF9FA-B6F4-43B1-9989-9008737A795C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C8EF9FA-B6F4-43B1-9989-9008737A795C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C8EF9FA-B6F4-43B1-9989-9008737A795C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{585222F6-6C88-42C9-8DF8-91650FA00C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{585222F6-6C88-42C9-8DF8-91650FA00C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{585222F6-6C88-42C9-8DF8-91650FA00C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{585222F6-6C88-42C9-8DF8-91650FA00C5F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Welcome!</h1>
+                <h2>Login with your Trello account using the link above to get started.</h2>
+            </hgroup>
+            <p>
+                Quickly create Cumulative Flow Diagrams of the movement of cards through <a href="http://trello.com">Trello</a> boards.
+                After Logging in with your Trello account, you'll be presented with a list of your boards, simply
+                choose one to see the Cumulative Flow Diagram.
+            </p>
+            <p>
+                If you have any suggestions, or spot any issues @Html.ActionLink("add them to Trello", "IdeasAndBugs", "Home")
+            </p>
+        </div>
+    </section>
+}
+
+<h3>How to use Trello Cumulative Flow?</h3>
+<div class="howToUse clear-fix">
+    <div class="howToUseStep">
+        <h4>1. Login with your Trello account</h4>
+        <img src="@Url.Content("~/Content/Images/trellologin.png")" alt="Log in with Trello" />
+    </div>
+    <div class="howToUseStep howToUseStepEven">
+        <h4>2. Select a board</h4>
+        <img src="@Url.Content("~/Content/Images/boardList.png")" alt="Select a board" />
+    </div>
+    <div class="howToUseStep">
+        <h4>3. View your Cumulative Flow Diagram</h4>
+        <img src="@Url.Content("~/Content/Images/example1.png")" alt="View your chart" />
+    </div>
+    <div class="howToUseStep howToUseStepEven">
+        <h4>4. Look for bottlenecks</h4>
+        <div class="tb_imageWrapper" id="tb_d754186c-201d-4b49-bb8a-12c9f5e4422a" style="width:400px; height: 167px;"><img src="http://trello-cfd.azurewebsites.net/content/images/example2.png" alt="example2.png" /></div>
+        <script type="text/javascript">
+        (function () {
+        var tbCore = ('https:' == document.location.protocol ? 'https://tagbase.blob.core.windows.net' : 'http://s.tagba.se') + '/scripts/TagbaseCore.js';
+        var tbInstance = ('https:' == document.location.protocol ? 'https://www.mytagbase.com' : 'http://d.tagba.se') + '/scripts/Include/d754186c-201d-4b49-bb8a-12c9f5e4422a';
+        document.write('<scr' + 'ipt type="text/javascript" src="' + tbCore + '"></sc' + 'ript>');
+        document.write('<scr' + 'ipt type="text/javascript" src="' + tbInstance + '"></sc' + 'ript>');
+        })();
+        </script>
+    </div>
+</div>

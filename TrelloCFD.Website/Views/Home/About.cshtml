@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<hgroup class="title">
+    <h1>@ViewBag.Title.</h1>
+</hgroup>
+
+<article>
+    <p>
+        This site provides basic Cumulative Flow Diagrams based on the movement of cards between
+        <a href="http://trello.com">Trello</a> boards. The diagram will start when the board is created,
+        and end at either when the board was closed, or at the current time. 15 points are chosen between these times
+        when the number of cards in each list at that time is counted. Cards that have been deleted are not shown at all.
+    </p>
+    <p>
+        This site is a side project, if your interested in improving the site or adding extra features the code is available on @Html.ActionLink("Github", "Github", "Home"), please feel free to check the
+        code out and submit a pull request! If you have any issues, or suggestions @Html.ActionLink("add them to Trello", "IdeasAndBugs", "Home") or <a href="mailto:rhys@rhysgodfrey.co.uk">contact me</a>.
+    </p>
+    <h2>
+        Contributors
+    </h2>
+    <p>The following people have contributed time and features to this website:</p>
+    <ul>
+        <li>Rhys Godfrey (<a href="http://twitter.com/rhysgodfrey">Twitter</a>, <a href="http://www.rhysgodfrey.co.uk">Blog</a>)</li>
+        <li>Nick Hills (<a href="http://blog.boro2g.co.uk">Blog</a>)</li>
+    </ul>
+    <p>
+        The <a href="http://trello.com">Trello</a> API is used to get the required data, and there is no affiliation with Trello. Trello is copyright Fog Creek Software.
+    </p>
+</article>
+
+@*<aside>
+    <h3>Aside Title</h3>
+    <p>
+        Use this area to provide additional information.
+    </p>
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+        <li>@Html.ActionLink("About", "About", "Home")</li>
+        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+    </ul>
+</aside>*@

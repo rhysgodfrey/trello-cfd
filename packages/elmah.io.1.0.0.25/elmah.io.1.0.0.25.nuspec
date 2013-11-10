@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>elmah.io</id>
+    <version>1.0.0.25</version>
+    <title>elmah.io</title>
+    <authors>elmah.io</authors>
+    <owners>elmah.io</owners>
+    <projectUrl>https://github.com/elmahio/elmah.io</projectUrl>
+    <iconUrl>https://secure.gravatar.com/avatar/5c4cb3646528821117abde6d2d5ee22d?s=32</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ELMAH error logger for sending errors to elmah.io.</description>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <dependencies>
+      <dependency id="elmah.corelibrary" version="1.2.2" />
+    </dependencies>
+  </metadata>
+</package>

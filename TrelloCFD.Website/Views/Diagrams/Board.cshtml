@@ -1,0 +1,50 @@
+﻿@model TrelloCFD.Models.DiagramsModel
+
+@{
+    ViewBag.Title = ViewBag.BoardName;
+}
+
+<h2>@ViewBag.BoardName <a href="@Url.Action("ExportBoard", new { id = ViewBag.BoardId })">(Export to CSV)</a></h2>
+
+<div class="datePickerWrapper">
+    <form action="@Request.RawUrl" method="get">
+        <div>
+            View Updates between:
+            <input type="text" class="startDatePicker" name="s" value="@Model.Cards.DisplayStartDate.ToString("dd/MM/yyyy")" />
+            and
+            <input type="text" class="endDatePicker" name="e" value="@Model.Cards.DisplayEndDate.ToString("dd/MM/yyyy")" />
+            <input type="submit" value="Go" />
+        </div>
+    </form>
+</div>
+
+<h3>By Cards</h3>
+
+@if (Model.Cards.LimitedByTrello)
+{
+    <h4 class="apiLimitWarning">Trello API Limit reached, data only available after @Model.Cards.StartDate.ToString("d MMMM yyyy")</h4>
+}
+
+@Html.Partial("CumulativeFlowDiagram", Model.Cards)
+
+@if (Model.Points != null)
+{
+    <h3>By Points</h3>
+        
+    @Html.Partial("CumulativeFlowDiagram", Model.Points)
+}
+
+<script type="text/javascript">
+    $(document).ready($(function () {
+        $(".startDatePicker").datepicker({
+            dateFormat: 'dd/mm/yy',
+            minDate: new Date(@Model.Cards.StartDate.Year, @Model.Cards.StartDate.Month-1, @Model.Cards.StartDate.Day),
+            maxDate: new Date(@Model.Cards.EndDate.Year, @Model.Cards.EndDate.Month-1, @Model.Cards.EndDate.Day)
+        });
+        $(".endDatePicker").datepicker({
+            dateFormat: 'dd/mm/yy',
+            minDate: new Date(@Model.Cards.StartDate.Year, @Model.Cards.StartDate.Month-1, @Model.Cards.StartDate.Day),
+            maxDate: new Date(@Model.Cards.EndDate.Year, @Model.Cards.EndDate.Month-1, @Model.Cards.EndDate.Day)
+        });
+    }));
+</script>
