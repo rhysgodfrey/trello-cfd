@@ -35,11 +35,17 @@ namespace TrelloCFD.Domain
                 BoardClosed = DateTime.Parse(updates.FirstOrDefault().Date).ToUniversalTime();
             }
 
+            ProcessUpdates(client, updates);
+        }
+
+        private void ProcessUpdates(ChelloClient client, IEnumerable<CardUpdateAction> updates)
+        {
             foreach (var update in updates.Reverse())
             {
                 switch (update.Type.ToUpperInvariant())
                 {
                     case "CREATECARD":
+                    case "MOVECARDTOBOARD":
                         _lists.AddCard(update.Data.List.Id, new ActivityCard(update.Data.Card, DateTime.Parse(update.Date).ToUniversalTime()));
                         break;
                     case "UPDATECARD":
@@ -57,10 +63,15 @@ namespace TrelloCFD.Domain
                         }
                         break;
                     case "MOVECARDFROMBOARD":
+                        // When a card is moved form a board, it's history isn't included in the boards activity any more, get it seperately
+                        var cardHistory = client.CardUpdates.ForCard(update.Data.Card.Id, new { limit = 1000, filter = "createCard,updateCard" });
+                        ProcessUpdates(client, cardHistory);
+                        
                         foreach (string listId in _lists.Keys)
                         {
                             _lists.FinishCard(listId, update.Data.Card, DateTime.Parse(update.Date).ToUniversalTime());
                         }
+
                         break;
                     case "CREATEBOARD":
                         BoardOpened = DateTime.Parse(update.Date).ToUniversalTime();
