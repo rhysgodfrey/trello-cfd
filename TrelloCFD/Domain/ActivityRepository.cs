@@ -40,13 +40,21 @@ namespace TrelloCFD.Domain
 
         private void ProcessUpdates(ChelloClient client, IEnumerable<CardUpdateAction> updates)
         {
+            if (updates == null)
+            {
+                return;
+            }
+
             foreach (var update in updates.Reverse())
             {
                 switch (update.Type.ToUpperInvariant())
                 {
                     case "CREATECARD":
                     case "MOVECARDTOBOARD":
-                        _lists.AddCard(update.Data.List.Id, new ActivityCard(update.Data.Card, DateTime.Parse(update.Date).ToUniversalTime()));
+                        if (update.Data.List != null)
+                        {
+                            _lists.AddCard(update.Data.List.Id, new ActivityCard(update.Data.Card, DateTime.Parse(update.Date).ToUniversalTime()));
+                        }
                         break;
                     case "UPDATECARD":
                         if (update.Data.ListAfter != null && update.Data.ListBefore != null)
