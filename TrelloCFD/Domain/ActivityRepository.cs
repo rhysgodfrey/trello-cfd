@@ -32,7 +32,7 @@ namespace TrelloCFD.Domain
             // may give strange results for some cases
             if (updates.FirstOrDefault().Type.Equals("updateBoard", StringComparison.OrdinalIgnoreCase))
             {
-                BoardClosed = DateTime.Parse(updates.FirstOrDefault().Date);
+                BoardClosed = DateTime.Parse(updates.FirstOrDefault().Date).ToUniversalTime();
             }
 
             foreach (var update in updates.Reverse())
@@ -40,30 +40,30 @@ namespace TrelloCFD.Domain
                 switch (update.Type.ToUpperInvariant())
                 {
                     case "CREATECARD":
-                        _lists.AddCard(update.Data.List.Id, new ActivityCard(update.Data.Card, DateTime.Parse(update.Date)));
+                        _lists.AddCard(update.Data.List.Id, new ActivityCard(update.Data.Card, DateTime.Parse(update.Date).ToUniversalTime()));
                         break;
                     case "UPDATECARD":
                         if (update.Data.ListAfter != null && update.Data.ListBefore != null)
                         {
-                            _lists.FinishCard(update.Data.ListBefore.Id, update.Data.Card, DateTime.Parse(update.Date));
-                            _lists.AddCard(update.Data.ListAfter.Id, new ActivityCard(update.Data.Card, DateTime.Parse(update.Date)));
+                            _lists.FinishCard(update.Data.ListBefore.Id, update.Data.Card, DateTime.Parse(update.Date).ToUniversalTime());
+                            _lists.AddCard(update.Data.ListAfter.Id, new ActivityCard(update.Data.Card, DateTime.Parse(update.Date).ToUniversalTime()));
                         }
                         else if (update.Data.Card.Closed)
                         {
                             foreach (string listId in _lists.Keys)
                             {
-                                _lists.FinishCard(listId, update.Data.Card, DateTime.Parse(update.Date));
+                                _lists.FinishCard(listId, update.Data.Card, DateTime.Parse(update.Date).ToUniversalTime());
                             }
                         }
                         break;
                     case "MOVECARDFROMBOARD":
                         foreach (string listId in _lists.Keys)
                         {
-                            _lists.FinishCard(listId, update.Data.Card, DateTime.Parse(update.Date));
+                            _lists.FinishCard(listId, update.Data.Card, DateTime.Parse(update.Date).ToUniversalTime());
                         }
                         break;
                     case "CREATEBOARD":
-                        BoardOpened = DateTime.Parse(update.Date);
+                        BoardOpened = DateTime.Parse(update.Date).ToUniversalTime();
                         LimitedByApi = false;
                         break;
                 }
