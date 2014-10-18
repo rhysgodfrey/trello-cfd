@@ -16,3 +16,17 @@
         </li>
     }
 </ul>
+
+<h3>Closed Boards</h3>
+
+
+<ul>
+    @foreach (var board in ViewBag.ClosedBoards)
+    {
+        <li>
+            <a href="/Diagrams/Board/@board.Id">
+                @board.Name
+            </a>
+        </li>
+    }
+</ul>

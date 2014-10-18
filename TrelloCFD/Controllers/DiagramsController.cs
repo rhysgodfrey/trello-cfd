@@ -23,7 +23,10 @@ namespace TrelloCFD.Controllers
         {
             ChelloClient client = TrelloClientFactory.Get();
 
-            ViewBag.Boards = client.Boards.ForUser("me");
+            var boards = client.Boards.ForUser("me");
+
+            ViewBag.Boards = boards.Where(b => !b.Closed);
+            ViewBag.ClosedBoards = boards.Where(b => b.Closed);
 
             return View();
         }
