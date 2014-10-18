@@ -14,7 +14,7 @@
                     type: 'area'
                 },
                 title: {
-                    text: '@ViewBag.BoardName'
+                    text: '@HttpUtility.JavaScriptStringEncode(HttpUtility.HtmlDecode(ViewBag.BoardName))'
                 },
                 xAxis: {
                     categories: [@Html.Raw(String.Join(",", Model.Periods.Select(p => String.Format(@"'{0}'", p.ToString("dd/MM HH:mm"))).ToArray()))],
@@ -25,7 +25,7 @@
                 },
                 yAxis: {
                     title: {
-                        text: '@Model.Title'
+                        text: '@HttpUtility.JavaScriptStringEncode(Model.Title)'
                     }
                 },
                 tooltip: {
@@ -46,7 +46,7 @@
                     }
                 },
                 series: [
-                    @Html.Raw(String.Join(",", Model.Lists.Select(l => String.Format("{{ name: '{0}', data: [{1}] }}", l.Name,
+                    @Html.Raw(String.Join(",", Model.Lists.Select(l => String.Format("{{ name: '{0}', data: [{1}] }}", HttpUtility.JavaScriptStringEncode(l.Name),
                         String.Join(",", l.Counts.ToArray()))).ToArray()))
                 ]
             });
