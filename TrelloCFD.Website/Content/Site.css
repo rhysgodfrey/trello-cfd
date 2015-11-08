@@ -815,3 +815,30 @@ h4.apiLimitWarning {
     margin-top: 10px;
     font-size: 0.8em;
 }
+
+.site-activity-details {
+    padding-top: 10px;
+    font-size: 0.8rem;
+}
+
+.site-activity-details div {
+    margin-top: 10px;
+    padding: 0 10px;
+    border: 2px solid #7ac0da;
+    border-radius: 5px;
+}
+
+    .site-activity-details div a,
+    .site-activity-details div a:link,
+    .site-activity-details div a:active,
+    .site-activity-details div a:visited {
+        color: #7ac0da;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 0;
+    }
+
+    .site-activity-details div a:hover {
+        text-decoration: underline;
+        background: none;
+    }
