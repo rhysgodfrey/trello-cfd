@@ -13,7 +13,7 @@ namespace TrelloCFD.Website.Filters
             {
                 filterContext.HttpContext.Response.AddHeader("Strict-Transport-Security", "max-age=15552000");
             }
-            else if (request.Headers["Upgrade-Insecure-Requests"] == "1")
+            else if (!request.IsLocal && request.Headers["Upgrade-Insecure-Requests"] == "1")
             {
                 var url = new Uri("https://" + request.Url.GetComponents(UriComponents.Host | UriComponents.PathAndQuery, UriFormat.Unescaped), UriKind.Absolute);
                 filterContext.Result = new RedirectResult(url.AbsoluteUri);
