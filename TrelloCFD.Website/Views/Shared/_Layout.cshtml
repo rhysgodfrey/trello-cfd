@@ -10,14 +10,7 @@
         <meta name="viewport" content="width=device-width" />
         @Styles.Render("~/Content/css")
         @Styles.Render("~/Content/themes/base/css")
-
-        <script type="text/javascript">
-            window.appInsights = { queue: [], applicationInsightsId: null, accountId: null, appUserId: null, configUrl: null, start: function (n) { function u(n, t) { n[t] = function () { var i = arguments; n.queue.push(function () { n[t].apply(n, i) }) } } function f(n) { var t = document.createElement("script"); return t.type = "text/javascript", t.src = n, t.async = !0, t } function r() { i.appendChild(f("//az416426.vo.msecnd.net/scripts/ai.0.js")) } var i, t; this.applicationInsightsId = n; u(this, "logEvent"); u(this, "logPageView"); i = document.getElementsByTagName("script")[0].parentNode; this.configUrl === null ? r() : (t = f(this.configUrl), t.onload = r, t.onerror = r, i.appendChild(t)); this.start = function () { } } };
-
-            appInsights.start("4695cb34-f9e0-48b5-834b-4c4bd18722a7");
-            appInsights.logPageView();
-        </script>
-
+        
         @Scripts.Render("~/bundles/modernizr")
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryui")
