@@ -109,3 +109,5 @@ UpgradeLog*.XML
 
 # API Key configuration file, don't want this to be checked into GitHub
 Trello.config
+
+.vs/
